@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Books</title>
+</head>
+<body>
+<div id="classics">
+
+</div>
+<script type="text/javascript">
+
+ var container = document.getElementById('classics')
+fetch("http://localhost:1337/classics")
+.then(res=>res.json())
+.then(res=>{
+res.forEach(book=>{
+  let bookContainer = document.createElement('div');
+  bookContainer.innerHTML='<h2>'+book.title+'</h2>';
+  container.appendChild(bookContainer);
+})
+});
+</script>
+</body>
+</html>
